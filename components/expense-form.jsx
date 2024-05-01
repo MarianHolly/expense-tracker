@@ -1,24 +1,37 @@
 "use client";
 
 import { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
+
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import { Calendar } from "./ui/calendar";
 
-export default function ExpenseForm() {
-  const [text, setText] = useState("");
+export default function ExpenseForm({addTransaction}) {
+  const [title, setTitle] = useState("");
   const [amount, setAmount] = useState(0);
+  const [date, setDate] = useState(new Date());
 
   function onSubmit(e) {
     e.preventDefault();
 
-    const newTransaction = {};
+    const newTransaction = {
+      id: uuidv4(),
+      title,
+      amount,
+      date,
+    };
+    setTitle('')
+    setAmount(0)
+
+    console.log(newTransaction);
+    addTransaction(newTransaction)
+
+
   }
 
   return (
-    <div className="bg-slate-100 w-full flex flex-col justify-start items-center">
-      <h2 className="text-center text-md text-slate-600 uppercase my-4">
-        Form
-      </h2>
+    <div className="w-full flex flex-col justify-start items-center">
       <form
         onSubmit={onSubmit}
         className="my-3 flex flex-col gap-y-3 items-center"
@@ -27,8 +40,8 @@ export default function ExpenseForm() {
           type="text"
           placeholder="Enter title for expense or income"
           className="w-96 text-md"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
 
         <Input
@@ -37,6 +50,13 @@ export default function ExpenseForm() {
           className="w-44 text-md"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
+        />
+
+        <Calendar
+          mode="single"
+          selected={date}
+          onSelect={setDate}
+          className="rounded-md border bg-slate-100"
         />
 
         <Button size="lg">Add transaction</Button>
