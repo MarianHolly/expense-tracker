@@ -1,25 +1,17 @@
 "use client";
 
-import { useState } from "react";
-
 import ExpenseForm from "@/components/expense-form";
 import ExpenseHistory from "@/components/expense-history";
 import ExpenseSummary from "@/components/expense-summary";
 
 export default function Home() {
   // transactions
-  const [transactions, setTransactions] = useState([
-    { id: 1, title: "Book", amount: -24 },
-  ]);
+  const transactions = [{ id: 1, title: "Book", amount: -24 }];
 
   // adding transaction (income or expense)
-  function addTransaction(transaction) {
-    setTransactions([...transactions, transaction]);
-  }
+  function addTransaction() {}
   // deleting transaction
-  function deleteTransaction(id) {
-    setTransactions();
-  }
+  function deleteTransaction() {}
 
   // balance
   const balance = 100;
