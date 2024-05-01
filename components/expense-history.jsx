@@ -25,7 +25,11 @@ export default function ExpenseHistory({ transactions, deleteTransaction }) {
       </h2>
       <div className="flex flex-col justify-center items-center gap-y-1 overflow-y-scroll">
         {transactions?.map((tran) => (
-          <Item key={tran.id} tran={tran} deleteTransaction={deleteTransaction} />
+          <Item
+            key={tran.id}
+            tran={tran}
+            deleteTransaction={deleteTransaction}
+          />
         ))}
       </div>
     </div>

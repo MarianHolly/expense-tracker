@@ -18,7 +18,7 @@ export default function Home() {
   }
   // deleting transaction
   function deleteTransaction(id) {
-    setTransactions()
+    setTransactions();
   }
 
   // balance
@@ -30,15 +30,12 @@ export default function Home() {
 
   return (
     <main className="container grid grid-cols-1 lg:grid-cols-2 grid-rows-1 gap-y-3 gap-x-3 p-3 min-h-screen">
-      <ExpenseSummary 
-        balance={balance} 
-        incomes={incomes} 
-        expences={expences} />
+      <ExpenseSummary balance={balance} incomes={incomes} expences={expences} />
       <ExpenseHistory
         transactions={transactions}
-        deleteTransaction={deleteTransaction} />
-      <ExpenseForm 
-        addTransaction={addTransaction} />
+        deleteTransaction={deleteTransaction}
+      />
+      <ExpenseForm addTransaction={addTransaction} />
     </main>
   );
 }

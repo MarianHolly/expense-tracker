@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Calendar } from "./ui/calendar";
 
-export default function ExpenseForm({addTransaction}) {
+export default function ExpenseForm({ addTransaction }) {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState(0);
   const [date, setDate] = useState(new Date());
@@ -21,13 +21,11 @@ export default function ExpenseForm({addTransaction}) {
       amount,
       date,
     };
-    setTitle('')
-    setAmount(0)
+    setTitle("");
+    setAmount(0);
 
     console.log(newTransaction);
-    addTransaction(newTransaction)
-
-
+    addTransaction(newTransaction);
   }
 
   return (
