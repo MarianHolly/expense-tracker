@@ -7,7 +7,9 @@ export default function ExpenseHistory({ transactions, deleteTransaction }) {
   if (transactions?.length === 0) {
     return (
       <div className="bg-slate-100 w-full row-span-2">
-        <h1 className="text-xl font-extrabold uppercase text-slate-900 opacity-25 my-3 text-center">History</h1>
+        <h1 className="text-xl font-extrabold uppercase text-slate-900 opacity-25 my-3 text-center">
+          History
+        </h1>
 
         <h1 className="text-center pb-8 text-lg font-extralight">
           You have no expences or incomes.
@@ -19,15 +21,13 @@ export default function ExpenseHistory({ transactions, deleteTransaction }) {
   // display history of transactions
   return (
     <div className="bg-slate-100 w-full row-span-2">
-           <h1 className="text-xl font-extrabold uppercase text-slate-900 opacity-25 my-3 text-center">History</h1>
+      <h1 className="text-xl font-extrabold uppercase text-slate-900 opacity-25 my-3 text-center">
+        History
+      </h1>
 
-      <div className="flex flex-col justify-center items-center gap-y-1 overflow-y-scroll">
+      <div className="flex lg:flex-col flex-wrap justify-center items-center gap-y-1 overflow-y-scroll">
         {transactions?.map((tran) => (
-          <Item
-            key={tran.id}
-            tran={tran}
-            deleteTransaction={deleteTransaction}
-          />
+          <Item key={tran.id} tran={tran} deleteTransaction={deleteTransaction} />
         ))}
       </div>
     </div>
@@ -40,11 +40,7 @@ function Item({ tran, deleteTransaction }) {
       className={`flex flex-row justify-between items-center w-96 m-2 px-2 lg:px-4 py-1 lg:py-3 ${`border-r-8 border-lime-500 rounded-sm`}`}
     >
       <h2 className="text-sm lg:text-base font-medium">{tran.title}</h2>
-      <Button
-        size="sm"
-        variant="outline"
-        onClick={() => deleteTransaction(tran.id)}
-      >
+      <Button size="sm" variant="outline" onClick={() => deleteTransaction(tran.id)}>
         <Trash2Icon className="w-5 h-5" />
       </Button>
     </Card>
