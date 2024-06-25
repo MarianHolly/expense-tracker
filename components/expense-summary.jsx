@@ -1,6 +1,12 @@
+"use client";
+
+import { useContext } from "react";
+import { TrackerContext } from "@/context";
 import { Button } from "./ui/button";
 
-export default function ExpenseSummary({ balance, incomes, expenses, reset }) {
+export default function ExpenseSummary() {
+  const { balance, incomes, expenses, reset } = useContext(TrackerContext);
+
   return (
     <div className="bg-slate-100 w-full flex flex-col justify-center items-center">
       <h1 className="text-xl font-extrabold uppercase text-slate-900 opacity-25 my-3">Summary</h1>

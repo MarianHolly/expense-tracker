@@ -1,8 +1,15 @@
+"use client";
+
+import { useContext } from "react";
+import { TrackerContext } from "@/context";
+
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import { Trash2Icon } from "lucide-react";
 
-export default function ExpenseHistory({ transactions, deleteTransaction }) {
+export default function ExpenseHistory() {
+  const { transactions, deleteTransaction } = useContext(TrackerContext);
+
   // display if no incomes or expences
   if (transactions?.length === 0) {
     return (
@@ -38,7 +45,10 @@ function Item({ tran, deleteTransaction }) {
   return (
     <Card
       key={tran.id}
-      className={`flex flex-row justify-between items-center w-96 m-2 px-2 lg:px-4 py-1 lg:py-3 rounded-sm ${tran.amount >= 0 ? "border-r-8 border-green-500" : "border-r-8 border-red-500"}`}>
+      className={`flex flex-row justify-between items-center w-96 m-2 px-2 lg:px-4 py-1 lg:py-3 rounded-sm ${
+        tran.amount >= 0 ? "border-r-8 border-green-500" : "border-r-8 border-red-500"
+      }`}
+    >
       <h2 className="text-sm lg:text-base font-medium">{tran.title}</h2>
       <Button size="sm" variant="outline" onClick={() => deleteTransaction(tran.id)}>
         <Trash2Icon className="w-5 h-5" />
