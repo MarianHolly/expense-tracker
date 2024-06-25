@@ -23,13 +23,13 @@ export default function Home() {
   const expences = -70;
 
   return (
-    <main className="container grid grid-cols-1 lg:grid-cols-2 grid-rows-1 gap-y-3 gap-x-3 p-3 min-h-screen">
-      <ExpenseSummary balance={balance} incomes={incomes} expences={expences} reset={reset} />
+    <main className="container grid grid-cols-1 lg:grid-cols-2 grid-rows-1 lg:grid-rows-2 gap-y-3 gap-x-3 p-3 min-h-screen">
       <ExpenseHistory
         transactions={transactions}
         deleteTransaction={deleteTransaction}
       />
       <ExpenseForm addTransaction={addTransaction} />
+      <ExpenseSummary balance={balance} incomes={incomes} expences={expences} reset={reset} />
     </main>
   );
 }

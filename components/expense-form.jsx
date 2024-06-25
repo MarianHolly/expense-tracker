@@ -29,10 +29,12 @@ export default function ExpenseForm({ addTransaction }) {
   }
 
   return (
-    <div className="w-full flex flex-col justify-start items-center">
+    <div className="w-full flex flex-col justify-center items-center">
+      <h1 className="text-xl font-extrabold uppercase text-slate-900 opacity-25 my-3">Form</h1>
+
       <form
         onSubmit={onSubmit}
-        className="my-3 flex flex-col gap-y-3 items-center"
+        className="flex flex-col gap-y-3 items-center"
       >
         <Input
           type="text"
@@ -49,14 +51,7 @@ export default function ExpenseForm({ addTransaction }) {
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
         />
-
-        <Calendar
-          mode="single"
-          selected={date}
-          onSelect={setDate}
-          className="rounded-md border bg-slate-100"
-        />
-
+ 
         <Button size="lg">Add transaction</Button>
       </form>
     </div>

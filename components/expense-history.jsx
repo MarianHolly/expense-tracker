@@ -7,9 +7,8 @@ export default function ExpenseHistory({ transactions, deleteTransaction }) {
   if (transactions?.length === 0) {
     return (
       <div className="bg-slate-100 w-full row-span-2">
-        <h2 className="text-center text-sm font-light text-slate-700 uppercase my-4">
-          History
-        </h2>
+        <h1 className="text-xl font-extrabold uppercase text-slate-900 opacity-25 my-3 text-center">History</h1>
+
         <h1 className="text-center pb-8 text-lg font-extralight">
           You have no expences or incomes.
         </h1>
@@ -20,9 +19,8 @@ export default function ExpenseHistory({ transactions, deleteTransaction }) {
   // display history of transactions
   return (
     <div className="bg-slate-100 w-full row-span-2">
-      <h2 className="text-center text-md font-light text-slate-700 uppercase my-4">
-        History
-      </h2>
+           <h1 className="text-xl font-extrabold uppercase text-slate-900 opacity-25 my-3 text-center">History</h1>
+
       <div className="flex flex-col justify-center items-center gap-y-1 overflow-y-scroll">
         {transactions?.map((tran) => (
           <Item
