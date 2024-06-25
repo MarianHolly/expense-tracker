@@ -1,14 +1,13 @@
 "use client";
 
-import { createContext } from "react";
-import useLocalStorage from "@/hooks/use-local-storage";
+import { createContext, useState } from "react";
 
 export const TrackerContext = createContext(null);
 
 export const TrackerProvider = ({ children }) => {
   const initialState = [{ id: 1, title: "Book", amount: -24 }];
 
-  const [transactions, setTransactions] = useLocalStorage("expense-tracker", initialState);
+  const [transactions, setTransactions] = useState(initialState);
 
   // adding transaction (income or expense)
   function addTransaction(newTransaction) {

@@ -1,14 +1,14 @@
 "use client";
 
-import { useContext, useState } from "react";
-import { TrackerContext } from "@/context";
-import { v4 as uuidv4 } from "uuid";
-
+import { useState } from "react";
 import { Input } from "./ui/input";
+import { v4 as uuidv4 } from "uuid";
 import { Button } from "./ui/button";
 
+import useTrackerStore from "@/store";
+
 export default function ExpenseForm() {
-  const { addTransaction } = useContext(TrackerContext);
+  const { addTransaction } = useTrackerStore();
 
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState(0);

@@ -1,14 +1,12 @@
 "use client";
 
-import { useContext } from "react";
-import { TrackerContext } from "@/context";
-
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import { Trash2Icon } from "lucide-react";
+import useTrackerStore from "@/store";
 
 export default function ExpenseHistory() {
-  const { transactions, deleteTransaction } = useContext(TrackerContext);
+  const { transactions, deleteTransaction } = useTrackerStore();
 
   // display if no incomes or expences
   if (transactions?.length === 0) {
@@ -17,7 +15,6 @@ export default function ExpenseHistory() {
         <h1 className="text-xl font-extrabold uppercase text-slate-900 opacity-25 my-3 text-center">
           History
         </h1>
-
         <h1 className="text-center pb-8 text-lg font-extralight">
           You have no expences or incomes.
         </h1>
@@ -31,7 +28,6 @@ export default function ExpenseHistory() {
       <h1 className="text-xl font-extrabold uppercase text-slate-900 opacity-25 my-3 text-center">
         History
       </h1>
-
       <div className="flex lg:flex-col flex-wrap justify-center items-center gap-y-1 overflow-y-scroll">
         {transactions?.map((tran) => (
           <Item key={tran.id} tran={tran} deleteTransaction={deleteTransaction} />

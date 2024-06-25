@@ -1,11 +1,13 @@
 "use client";
 
-import { useContext } from "react";
-import { TrackerContext } from "@/context";
 import { Button } from "./ui/button";
+import useTrackerStore from "@/store";
 
 export default function ExpenseSummary() {
-  const { balance, incomes, expenses, reset } = useContext(TrackerContext);
+  const { reset, getBalance, getIncomes, getExpenses } = useTrackerStore();
+  const balance = getBalance();
+  const incomes = getIncomes();
+  const expenses = getExpenses();
 
   return (
     <div className="bg-slate-100 w-full flex flex-col justify-center items-center">
