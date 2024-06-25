@@ -37,8 +37,8 @@ export default function ExpenseHistory({ transactions, deleteTransaction }) {
 function Item({ tran, deleteTransaction }) {
   return (
     <Card
-      className={`flex flex-row justify-between items-center w-96 m-2 px-2 lg:px-4 py-1 lg:py-3 ${`border-r-8 border-lime-500 rounded-sm`}`}
-    >
+      key={tran.id}
+      className={`flex flex-row justify-between items-center w-96 m-2 px-2 lg:px-4 py-1 lg:py-3 rounded-sm ${tran.amount >= 0 ? "border-r-8 border-green-500" : "border-r-8 border-red-500"}`}>
       <h2 className="text-sm lg:text-base font-medium">{tran.title}</h2>
       <Button size="sm" variant="outline" onClick={() => deleteTransaction(tran.id)}>
         <Trash2Icon className="w-5 h-5" />
