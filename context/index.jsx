@@ -2,7 +2,7 @@
 
 import { createContext, useReducer, useState } from "react";
 
-// 
+// Reducer function
 function trackerReducer(state, action) {
   switch (action.type) {
     case "ADD_TRANSACTION":
