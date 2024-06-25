@@ -13,7 +13,7 @@ export default function Home() {
   // deleting transaction
   function deleteTransaction() {}
   // reset tracker
-  function reset(){}
+  function reset() {}
 
   // balance
   const balance = 100;
@@ -24,10 +24,7 @@ export default function Home() {
 
   return (
     <main className="container grid grid-cols-1 lg:grid-cols-2 grid-rows-1 lg:grid-rows-2 gap-y-3 gap-x-3 p-3 min-h-screen">
-      <ExpenseHistory
-        transactions={transactions}
-        deleteTransaction={deleteTransaction}
-      />
+      <ExpenseHistory transactions={transactions} deleteTransaction={deleteTransaction} />
       <ExpenseForm addTransaction={addTransaction} />
       <ExpenseSummary balance={balance} incomes={incomes} expences={expences} reset={reset} />
     </main>
