@@ -1,26 +1,41 @@
 "use client";
 
-import { createContext, useState } from "react";
+import { createContext, useReducer, useState } from "react";
+
+// 
+function trackerReducer(state, action) {
+  switch (action.type) {
+    case "ADD_TRANSACTION":
+      return [...state, action.payload];
+    case "DELETE_TRANSACTION":
+      return state.filter((transaction) => transaction.id !== action.payload);
+    case "RESET":
+      return [];
+    default:
+      return state;
+  }
+}
+
+const initialState = [{ id: 1, title: "Book", amount: -24 }];
 
 export const TrackerContext = createContext(null);
 
 export const TrackerProvider = ({ children }) => {
-  const initialState = [{ id: 1, title: "Book", amount: -24 }];
+  const [transactions, dispatch] = useReducer(trackerReducer, initialState);
 
-  const [transactions, setTransactions] = useState(initialState);
+  // Actions
+  const addTransaction = (newTransaction) => {
+    dispatch({ type: "ADD_TRANSACTION", payload: newTransaction });
+  };
 
-  // adding transaction (income or expense)
-  function addTransaction(newTransaction) {
-    setTransactions([...transactions, newTransaction]);
-  }
-  // deleting transaction
-  function deleteTransaction(id) {
-    setTransactions(transactions.filter((transaction) => transaction.id !== id));
-  }
-  // reset tracker
-  function reset() {
-    setTransactions([]);
-  }
+  const deleteTransaction = (id) => {
+    dispatch({ type: "DELETE_TRANSACTION", payload: id });
+  };
+
+  const reset = () => {
+    dispatch({ type: "RESET" });
+  };
+
   // Calculate balance, incomes, and expenses
   const balance = transactions.reduce((acc, transaction) => acc + transaction.amount, 0);
   const incomes = transactions
