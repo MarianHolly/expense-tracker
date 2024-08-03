@@ -46,9 +46,12 @@ function Item({ tran, deleteTransaction }) {
       }`}
     >
       <h2 className="text-sm lg:text-base font-medium">{tran.title}</h2>
-      <Button size="sm" variant="outline" onClick={() => deleteTransaction(tran.id)}>
-        <Trash2Icon className="w-5 h-5" />
-      </Button>
+      <div className="flex flex-row items-center">
+        <h4 className="mr-4 text-slate-400">{tran.amount} €</h4>
+        <Button size="sm" variant="outline" onClick={() => deleteTransaction(tran.id)}>
+          <Trash2Icon className="w-5 h-5" />
+        </Button>
+      </div>
     </Card>
   );
 }
