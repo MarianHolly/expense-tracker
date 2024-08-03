@@ -11,7 +11,7 @@ export default function ExpenseSummary() {
 
   return (
     <div className="bg-slate-100 w-full flex flex-col justify-center items-center">
-      <h1 className="text-xl font-extrabold uppercase text-slate-900 opacity-25 my-3">Summary</h1>
+      <h1 className="text-xl font-extrabold uppercase text-slate-900 opacity-45 my-3">Summary</h1>
       <div className="flex flex-col justify-center py-2 px-5 lg:px-10 text-center shadow-md rounded-md bg-white">
         <h2 className="text-xs text-slate-600 uppercase">Your Balance</h2>
         <h1 className="text-2xl lg:text-4xl font-semibold">{balance} €</h1>

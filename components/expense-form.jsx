@@ -32,8 +32,8 @@ export default function ExpenseForm() {
   }
 
   return (
-    <div className="w-full flex flex-col justify-center items-center">
-      <h1 className="text-xl font-extrabold uppercase text-slate-900 opacity-25 my-3">Form</h1>
+    <div className="w-full flex flex-col justify-center items-center bg-slate-100">
+      <h1 className="text-xl font-extrabold uppercase text-slate-900 opacity-45 my-3">Form</h1>
       <form onSubmit={onSubmit} className="flex flex-col gap-y-3 items-center">
         <Input
           type="text"

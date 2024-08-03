@@ -12,7 +12,7 @@ export default function ExpenseHistory() {
   if (transactions?.length === 0) {
     return (
       <div className="bg-slate-100 w-full row-span-2">
-        <h1 className="text-xl font-extrabold uppercase text-slate-900 opacity-25 my-3 text-center">
+        <h1 className="text-xl font-extrabold uppercase text-slate-900 opacity-45 my-3 text-center">
           History
         </h1>
         <h1 className="text-center pb-8 text-lg font-extralight">
@@ -41,7 +41,7 @@ function Item({ tran, deleteTransaction }) {
   return (
     <Card
       key={tran.id}
-      className={`flex flex-row justify-between items-center w-96 m-2 px-2 lg:px-4 py-1 lg:py-3 rounded-sm ${
+      className={`flex flex-row justify-between items-center w-96 m-2 px-2 lg:px-4 py-1 lg:py-2 rounded-sm ${
         tran.amount >= 0 ? "border-r-8 border-green-500" : "border-r-8 border-red-500"
       }`}
     >
